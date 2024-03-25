@@ -1,0 +1,67 @@
+{
+    "name": "k32w0",
+    "description": "Metadata for k32w0 support in Matter",
+    "sdkVersion": "2.6.13",
+    "sdkWestManifest": "third_party/nxp/k32w0_sdk/repo/manifest/west.yml",
+    "boards": [
+        {
+            "name": "K32W041ADK6",
+            "description": "High Performance, Secure and Low-Power MCU for Zigbee®, Thread™ and Bluetooth® LE 5.0 with High Tx Power Option",
+            "image": "images/dk6.gif",
+            "url": "https://www.nxp.com/products/wireless-connectivity/multiprotocol-mcus/k32w041am-a-high-performance-secure-and-low-power-mcu-for-zigbee-thread-and-bluetooth-le-5-0-with-high-tx-power-option:K32W041AM-A",
+            "probeTarget": {
+                "LinkServer": "K32W041A:K32W041ADK6",
+                "SEGGER": "K32W041A"
+            }
+        },
+        {
+            "name": "K32W041AMDK6",
+            "description": "High Performance, Secure and Low-Power MCU for Zigbee®, Thread™ and Bluetooth® LE 5.0 with High Tx Power Option",
+            "image": "images/dk6.gif",
+            "url": "https://www.nxp.com/products/wireless-connectivity/multiprotocol-mcus/k32w041am-a-high-performance-secure-and-low-power-mcu-for-zigbee-thread-and-bluetooth-le-5-0-with-high-tx-power-option:K32W041AM-A",
+            "probeTarget": {
+                "LinkServer": "K32W041AM:K32W041AMDK6",
+                "SEGGER": "K32W041AM"
+            }
+        },
+        {
+            "name": "K32W061DK6",
+            "description": "High-Performance, Secure and Ultra-Low-Power MCU for Zigbee®, Thread™ and Bluetooth® LE 5.0 with Built-In NFC Option",
+            "image": "images/dk6.gif",
+            "url": "https://www.nxp.com/products/wireless-connectivity/multiprotocol-mcus/k32w061-41-high-performance-secure-and-ultra-low-power-mcu-for-zigbeethread-and-bluetooth-le-5-0-with-built-in-nfc-option:K32W061_41",
+            "probeTarget": {
+                "LinkServer": "K32W061:K32W061DK6",
+                "SEGGER": "K32W061"
+            }
+        }
+    ],
+    "apps": [
+        "lighting-app",
+        "contact-sensor-app"
+    ],
+    "targets": {
+        "k32w-k32w0-light-crypto-platform-tokenizer": "Lighting app",
+        "k32w-k32w0-contact-crypto-platform-tokenizer": "Contact sensor app",
+        "k32w-k32w0-contact-crypto-platform-low-power-nologs": "Low power contact sensor app",
+    },
+    "debugConfig": {
+        "loadAddress": "0x4000",
+        "probes": {
+            "LinkServer": {
+                "interface": "swd",
+                "initCommands": []
+            },
+            "SEGGER": {
+                "interface": "swd",
+                "speed": "4000",
+                "initCommands": []
+            }
+        },
+        "preFlashActions": [
+            {
+                "description": "Run pre flash actions (load SSBL, load factory data, write image directories)",
+                "command": "scripts/flash_utils.py --platform k32w0"
+            }
+        ]
+    }
+}
