@@ -1,8 +1,8 @@
 {
     "name": "k32w0",
     "description": "Metadata for k32w0 support in Matter",
-    "sdkVersion": "2.6.13",
-    "sdkWestManifest": "third_party/nxp/k32w0_sdk/repo/manifest/west.yml",
+    "sdkVersion": "2.6.14",
+    "sdkWestManifest": "third_party/nxp/github_sdk/k32w0/manifest/west.yml",
     "boards": [
         {
             "name": "K32W041ADK6",
@@ -40,9 +40,25 @@
         "contact-sensor-app"
     ],
     "targets": {
-        "k32w-k32w0-light-crypto-platform-tokenizer": "Lighting app",
-        "k32w-k32w0-contact-crypto-platform-tokenizer": "Contact sensor app",
-        "k32w-k32w0-contact-crypto-platform-low-power-nologs": "Low power contact sensor app",
+        "nxp-k32w0-lighting": "Lighting app",
+        "nxp-k32w0-lighting-fro32k": "Lighting app with FRO32K",
+        "nxp-k32w0-lighting-factory": "Lighting app with factory data",
+        "nxp-k32w0-lighting-rotating-id": "Lighting app with rotating device id",
+        "nxp-k32w0-lighting-sw-v2": "Lighting app (OTA)",
+        "nxp-k32w0-lighting-fro32k-sw-v2": "Lighting app with FRO32K (OTA)",
+        "nxp-k32w0-lighting-factory-sw-v2": "Lighting app with factory data (OTA)",
+        "nxp-k32w0-contact-sensor": "Contact sensor app",
+        "nxp-k32w0-contact-sensor-fro32k": "Contact sensor app with FRO32K",
+        "nxp-k32w0-contact-sensor-factory": "Contact sensor app with factory data",
+        "nxp-k32w0-contact-sensor-low-power": "Low power contact sensor app",
+        "nxp-k32w0-contact-sensor-low-power-fro32k": "Low power contact sensor app with FRO32K",
+        "nxp-k32w0-contact-sensor-low-power-factory": "Low power contact sensor app with factory data",
+        "nxp-k32w0-contact-sensor-low-power-lit": "Low power contact sensor app (LIT)",
+        "nxp-k32w0-contact-sensor-sw-v2": "Contact sensor app (OTA)",
+        "nxp-k32w0-contact-sensor-fro32k-sw-v2": "Contact sensor app with FRO32K (OTA)",
+        "nxp-k32w0-contact-sensor-low-power-sw-v2": "Low power contact sensor app (OTA)",
+        "nxp-k32w0-contact-sensor-low-power-fro32k-sw-v2": "Low power contact sensor app with FRO32K (OTA)",
+        "nxp-k32w0-contact-sensor-low-power-factory-sw-v2": "Low power contact sensor app with factory data (OTA)"
     },
     "debugConfig": {
         "loadAddress": "0x4000",
