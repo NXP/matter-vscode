@@ -14,10 +14,15 @@
 #    See the License for the specific language governing permissions and
 #    limitations under the License.
 #
+import os
 
 from .platform import Platform
+
 from spsdk.utils import nxpdevscan
 
+# This assumes that the repo is a submodule inside the Matter repository.
+# Otherwise, the relative path will not work.
+github_sdk = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../github_sdk/rw_k32w1/repo'))
 
 class K32W1(Platform):
 

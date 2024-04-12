@@ -15,12 +15,18 @@
 #    limitations under the License.
 #
 
+import os
+
 from .platform import Platform
 
 from spsdk.dk6.dk6device import DK6Device
 from spsdk.dk6.driver import DriverInterface
 from spsdk.apps.dk6prog import get_default_backend
 
+# This assumes that the repo is a submodule inside the Matter repository.
+# Otherwise, the relative path will not work.
+github_sdk = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../github_sdk/k32w0/repo'))
+ssbl_path = f"{github_sdk}/examples/k32w061dk6/wireless_examples/framework/ssbl/binary/ssbl_ext_flash_pdm_support.bin"
 
 class K32W0(Platform):
 
@@ -29,7 +35,7 @@ class K32W0(Platform):
 
         self.tool = ["dk6prog", "-d"]
         self.actions.append(["erase", "0", "0x9de00"])
-        self.actions.append(["write", "0", "metadata/k32w0/binaries/example-ssbl.bin"])
+        self.actions.append(["write", "0", ssbl_path])
         self.actions.append(["write", "0x9d600", "metadata/k32w0/binaries/example-factory-data.bin"])
         self.actions.append(["write", "0x160", "{{0000000010000000}}", "8", "PSECT"])
         self.actions.append(["write", "0x168", "{{00400000C9040101}}", "8", "PSECT"])
