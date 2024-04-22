@@ -1,8 +1,8 @@
 {
     "name": "k32w1",
     "description": "Metadata for k32w1 support in Matter",
-    "sdkVersion": "2.12.7",
-    "sdkWestManifest": "NA",
+    "sdkVersion": "2.15.0",
+    "sdkWestManifest": "third_party/nxp/github_sdk/rw_k32w1/manifest/west.yml",
     "boards": [
         {
             "name": "K32W148-EVK",
@@ -20,8 +20,21 @@
         "contact-sensor-app"
     ],
     "targets": {
-        "k32w-k32w1-light-crypto-platform-openthread-ftd": "Lighting app",
-        "k32w-k32w1-contact-crypto-platform-low-power-nologs": "Low power contact sensor app",
+        "nxp-k32w1-lighting": "Lighting app",
+        "nxp-k32w1-lighting-factory": "Lighting app with factory data",
+        "nxp-k32w1-lighting-rotating-id": "Lighting app with rotating device id",
+        "nxp-k32w1-lighting-smu2": "Lighting app with SMU2",
+        "nxp-k32w1-lighting-smu2-factory": "Lighting app with SMU2 and factory data",
+        "nxp-k32w1-lighting-factory-dac-conversion": "DAC private key conversion app",
+        "nxp-k32w1-lighting-sw-v2": "Lighting app (OTA)",
+        "nxp-k32w1-lighting-smu2-sw-v2": "Lighting app with SMU2 (OTA)",
+        "nxp-k32w1-lighting-factory-sw-v2": "Lighting app with factory data (OTA)",
+        "nxp-k32w1-lighting-smu2-factory-sw-v2": "Lighting app with SMU2 and factory data (OTA)",
+        "nxp-k32w1-contact-sensor-low-power": "Low power contact sensor app",
+        "nxp-k32w1-contact-sensor-low-power-factory": "Low power contact sensor app with factory data",
+        "nxp-k32w1-contact-sensor-low-power-lit": "Low power contact sensor app (LIT)",
+        "nxp-k32w1-contact-sensor-low-power-sw-v2": "Low power contact sensor app (OTA)",
+        "nxp-k32w1-contact-sensor-low-power-factory-sw-v2": "Low power contact sensor app with factory data (OTA)"
     },
     "debugConfig": {
         "loadAddress": "0",
