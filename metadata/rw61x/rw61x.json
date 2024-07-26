@@ -1,0 +1,64 @@
+{
+    "name": "rw61x",
+    "description": "Metadata for rw61x support in Matter",
+    "sdkVersion": "2.16.0",
+    "sdkWestManifest": "third_party/nxp/nxp_matter_support/github_sdk/common_sdk/manifest/west.yml",
+    "boards": [
+        {
+            "name": "RD-RW612-BGA",
+            "description": "Wireless MCU with Integrated Tri-radio: 1x1 Wi-Fi® 6 + Bluetooth® Low Energy 5.4 / 802.15.4",
+            "image": "images/rdrw612bga.jpg",
+            "url": "https://www.nxp.com/products/wireless-connectivity/wi-fi-plus-bluetooth-plus-802-15-4/wireless-mcu-with-integrated-tri-radio-1x1-wi-fi-6-plus-bluetooth-low-energy-5-4-802-15-4:RW612",
+            "probeTarget": {
+                "LinkServer": "RW612:RD-RW612-BGA",
+                "SEGGER": "RW612"
+            }
+        },
+        {
+            "name": "FRDM-RW612",
+            "description": "Wireless MCU with Integrated Tri-radio: 1x1 Wi-Fi® 6 + Bluetooth® Low Energy 5.4 / 802.15.4",
+            "image": "images/frdm-rw612.png",
+            "url": "https://www.nxp.com/products/wireless-connectivity/wi-fi-plus-bluetooth-plus-802-15-4/wireless-mcu-with-integrated-tri-radio-1x1-wi-fi-6-plus-bluetooth-low-energy-5-4-802-15-4:RW612",
+            "probeTarget": {
+                "LinkServer": "RW612:RD-RW612-BGA",
+                "SEGGER": "RW612"
+            }
+        }
+    ],
+    "apps": [
+        "all-clusters-app",
+        "laundry-washer-app",
+        "thermostat"
+    ],
+    "targets": {
+        "nxp-rw61x-freertos-all-clusters-wifi": "All clusters app over Wi-Fi",
+        "nxp-rw61x-freertos-all-clusters-thread": "All clusters app over OpenThread",
+        "nxp-rw61x-freertos-all-clusters-thread-wifi": "All clusters app over Wi-Fi with OpenThread Border Router support",
+        "nxp-rw61x-freertos-laundry-washer-wifi": "Laundry washer over Wi-Fi",
+        "nxp-rw61x-freertos-laundry-washer-thread": "Laundry washerover OpenThread",
+        "nxp-rw61x-freertos-laundry-washer-thread-wifi": "Laundry washer over Wi-Fi with OpenThread Border Router support",
+        "nxp-rw61x-freertos-thermostat-wifi": "Thermostat over WiFi",
+        "nxp-rw61x-freertos-thermostat-thread": "Thermostat over OpenThread",
+        "nxp-rw61x-freertos-thermostat-thread-wifi": "Thermostat over Wi-Fi with OpenThread Border Router support"
+    },
+    "debugConfig": {
+        "loadAddress": "0x8020000",
+        "probes": {
+            "LinkServer": {
+                "interface": "swd",
+                "initCommands": []
+            },
+            "SEGGER": {
+                "interface": "swd",
+                "speed": "4000",
+                "initCommands": []
+            }
+        },
+        "preFlashActions": [
+            {
+                "description": "Run pre flash actions",
+                "command": "scripts/flash_utils.py --platform rw61x"
+            }
+        ]
+    }
+}
