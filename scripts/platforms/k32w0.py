@@ -17,15 +17,11 @@
 
 import os
 
-from .platform import Platform
+from .utils.platform import Platform
+from .utils.tools import DK6Prog
 
-from spsdk.dk6.dk6device import DK6Device
-from spsdk.dk6.driver import DriverInterface
-from spsdk.apps.dk6prog import get_default_backend
-
-# This assumes that the repo is a submodule inside the Matter repository.
-# Otherwise, the relative path will not work.
-github_sdk = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../github_sdk/k32w0/repo'))
+# This assumes that the matter-vscode-for-mcux repo is cloned in Matter root path.
+github_sdk = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../third_party/nxp/nxp_matter_support/github_sdk/k32w0/repo'))
 ssbl_path = f"{github_sdk}/examples/k32w061dk6/wireless_examples/framework/ssbl/binary/ssbl_ext_flash_pdm_support.bin"
 
 class K32W0(Platform):
@@ -33,28 +29,15 @@ class K32W0(Platform):
     def __init__(self):
         super().__init__()
 
-        self.tool = ["dk6prog", "-d"]
-        self.actions.append(["erase", "0", "0x9de00"])
-        self.actions.append(["write", "0", ssbl_path])
-        self.actions.append(["write", "0x9d600", "metadata/k32w0/binaries/example-factory-data.bin"])
-        self.actions.append(["write", "0x160", "{{0000000010000000}}", "8", "PSECT"])
-        self.actions.append(["write", "0x168", "{{00400000C9040101}}", "8", "PSECT"])
-
-    def run(self):
-        device_id = None
-        interface = DriverInterface(get_default_backend())
-        devices = interface.list_devices()
-        if devices:
-            device_id = devices[0].device_id
-    
-        self.run_actions(device_id)
+        self.tool = DK6Prog()
+        self.tool.add_action(["erase", "0", "0x9de00"])
+        self.tool.add_action(["write", "0", ssbl_path])
+        self.tool.add_action(["write", "0x9d600", "metadata/k32w0/binaries/example-factory-data.bin"])
+        self.tool.add_action(["write", "0x160", "{{0000000010000000}}", "8", "PSECT"])
+        self.tool.add_action(["write", "0x168", "{{00400000C9040101}}", "8", "PSECT"])
 
     def pre_message(self):
         print("Please set up the DK6 board for pre flash actions:")
-        print(" - connect the board to the connector marked with FTDI USB")
         print(" - set the J4 and J7 jumpers to the middle position (JN UART0 - FTDI)")
-
-    def post_message(self):
-        print("Please set up the DK6 board for application flashing:")
+        print(" - connect the board to the connector marked with FTDI USB")
         print(" - connect the board to the connector marked with LPC-Link2 USB")
-        print(" - set the J4 and J7 jumpers to the left position (JN UART0 - LPC)")
