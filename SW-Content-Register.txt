@@ -1,7 +1,7 @@
 NXP Software Content Register
 
 Name: matter-vscode
-Version: 1.3.0.0.1
+Version: 1.4.0-pvw1
 Outgoing License: Apache-2.0
 License File: LICENSE
 Format: Python scripts, JSON files and binaries

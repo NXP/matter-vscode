@@ -15,11 +15,15 @@
 #    limitations under the License.
 #
 
+import click
 
 from platforms.k32w0 import K32W0
 from platforms.k32w1 import K32W1
 
-import click
+PLATFORMS = {
+    "k32w0": K32W0,
+    "k32w1": K32W1
+}
 
 @click.command()
 @click.option("--platform", default=None, help="Platform name")
@@ -27,12 +31,12 @@ def main(platform):
     """Utility script to run pre flash actions for different platforms.
     Examples: loading factory data, writing the radio firmware etc.
     """
-    if platform == "k32w0":
-        K32W0().run()
-    elif platform == "k32w1":
-        K32W1().run()
-    else:
+
+    try:
+        PLATFORMS[platform]().run_actions()
+    except KeyError as _:
         print(f"{platform} is not supported")
+        print(f"Here is a list of supported platforms: {list(PLATFORMS.keys())}")
 
 if __name__ == "__main__":
     main()

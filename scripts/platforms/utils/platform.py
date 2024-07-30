@@ -16,6 +16,7 @@
 #
 
 import subprocess
+import sys
 
 
 class Platform:
@@ -23,33 +24,27 @@ class Platform:
 
     def __init__(self):
         """The list of actions should be populated here in derived classes."""
-        self.tool = list()
-        self.actions = list()
-
-    def run(self):
-        """This is the main function called when a platform is given as input."""
-        print("run should be implemented in derived class.")
-        pass
+        self.tool = None
 
     def pre_message(self):
-        """This message is printed when there is something wrong with the connection."""
-        print("pre_message should be implemented in derived class.")
+        """This message is printed when there is something wrong with the connection.
+        
+        Can be reimplemented in derived classes to inform the user regarding the
+        board state: e.g. some actions require the board to be put in ISP mode.
+        """
         pass
 
     def post_message(self):
         """This message is printed at the end of the run actions."""
-        print("post_message should be implemented in derived class.")
+        print("Board is ready for application flashing")
         pass
 
-    def run_actions(self, connection):
-        """This should be called by run in concrete classes.
-        
-        connection is a string that should contain the serial port, the device name
-        or any identifier used by the flashing tool.
-        """
-        if connection:
-            for action in self.actions:
-                subprocess.run(self.tool + [connection] + action)
+    def run_actions(self):
+        """This should be called by run in concrete classes."""
+        if self.tool.is_connected():
+            self.tool.run_actions()
             self.post_message()
         else:
+            # Inform caller that the board must be set up correctly.
             self.pre_message()
+            sys.exit(1)
