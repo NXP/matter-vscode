@@ -21,6 +21,7 @@ from platforms.k32w0 import K32W0
 from platforms.k32w1 import K32W1
 from platforms.mcxw71 import MCXW71
 from platforms.rt1060 import RT1060
+from platforms.rt1170 import RT1170
 from platforms.rw61x import RW61X
 
 PLATFORMS = {
@@ -28,6 +29,7 @@ PLATFORMS = {
     "k32w1": K32W1,
     "mcxw71": MCXW71,
     "rt1060": RT1060,
+    "rt1170": RT1170,
     "rw61x": RW61X
 }
 
