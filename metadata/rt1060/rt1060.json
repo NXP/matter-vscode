@@ -1,0 +1,64 @@
+{
+    "name": "rt1060",
+    "description": "Metadata for rt1060 support in Matter",
+    "sdkVersion": "2.16.0",
+    "sdkWestManifest": "third_party/nxp/nxp_matter_support/github_sdk/common_sdk/manifest/west.yml",
+    "boards": [
+        {
+            "name": "EVK-MIMXRT1060",
+            "description": "i.MX RT1060: Crossover MCU with Arm® Cortex®-M7",
+            "image": "images/mimxrt1060-evkb.png",
+            "url": "https://www.nxp.com/products/processors-and-microcontrollers/arm-microcontrollers/i-mx-rt-crossover-mcus/i-mx-rt1060-crossover-mcu-with-arm-cortex-m7:i.MX-RT1060",
+            "probeTarget": {
+                "LinkServer": "MIMXRT1062xxxxA:EVK-MIMXRT1060",
+                "SEGGER": "MIMXRT1062xxx6A"
+            }
+        },
+        {
+            "name": "MIMXRT1060-EVKB",
+            "description": "i.MX RT1060: Crossover MCU with Arm® Cortex®-M7",
+            "image": "images/mimxrt1060-evkb.png",
+            "url": "https://www.nxp.com/products/processors-and-microcontrollers/arm-microcontrollers/i-mx-rt-crossover-mcus/i-mx-rt1060-crossover-mcu-with-arm-cortex-m7:i.MX-RT1060",
+            "probeTarget": {
+                "LinkServer": "MIMXRT1062xxxxA:MIMXRT1060-EVKB",
+                "SEGGER": "MIMXRT1062xxx6A"
+            }
+        },
+        {
+            "name": "MIMXRT1060-EVKC",
+            "description": "i.MX RT1060: Crossover MCU with Arm® Cortex®-M7",
+            "image": "images/mimxrt1060-evkb.png",
+            "url": "https://www.nxp.com/products/processors-and-microcontrollers/arm-microcontrollers/i-mx-rt-crossover-mcus/i-mx-rt1060-crossover-mcu-with-arm-cortex-m7:i.MX-RT1060",
+            "probeTarget": {
+                "LinkServer": "MIMXRT1062xxxxB:MIMXRT1060-EVKC",
+                "SEGGER": "MIMXRT1062xxx6B"
+            }
+        }
+    ],
+    "apps": [
+        "all-clusters-app",
+        "laundry-washer-app",
+        "thermostat"
+    ],
+    "targets": {},
+    "debugConfig": {
+        "loadAddress": "0x60000000",
+        "probes": {
+            "LinkServer": {
+                "interface": "swd",
+                "initCommands": []
+            },
+            "SEGGER": {
+                "interface": "swd",
+                "speed": "4000",
+                "initCommands": []
+            }
+        },
+        "preFlashActions": [
+            {
+                "description": "Run pre flash actions",
+                "command": "scripts/flash_utils.py --platform rt1060"
+            }
+        ]
+    }
+}
