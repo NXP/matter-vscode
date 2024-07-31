@@ -18,6 +18,7 @@
 
 from platforms.k32w0 import K32W0
 from platforms.k32w1 import K32W1
+from platforms.rw61x import RW61x
 
 import click
 
@@ -31,6 +32,8 @@ def main(platform):
         K32W0().run()
     elif platform == "k32w1":
         K32W1().run()
+    elif platform == "rw61x":
+        print(f"{platform} is in development")
     else:
         print(f"{platform} is not supported")
 

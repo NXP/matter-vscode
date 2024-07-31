@@ -1,0 +1,65 @@
+{
+    "name": "rw61x",
+    "description": "Metadata for rw61x support in Matter",
+    "sdkVersion": "2.15.0",
+    "sdkWestManifest": "third_party/nxp/github_sdk/rw_k32w1/manifest/west.yml",
+    "boards": [
+        {
+            "name": "RD-RW612-BGA",
+            "description": "Wireless MCU with Integrated Tri-radio: 1x1 Wi-Fi® 6 + Bluetooth® Low Energy 5.4 / 802.15.4",
+            "image": "images/rdrw612bga.jpg",
+            "url": "https://www.nxp.com/products/wireless-connectivity/wi-fi-plus-bluetooth-plus-802-15-4/wireless-mcu-with-integrated-tri-radio-1x1-wi-fi-6-plus-bluetooth-low-energy-5-4-802-15-4:RW612",
+            "probeTarget": {
+                "LinkServer": "RW612:RD-RW612-BGA",
+                "SEGGER": "RW612"
+            }
+        },
+        {
+            "name": "FRDM-RW612",
+            "description": "Wireless MCU with Integrated Tri-radio: 1x1 Wi-Fi® 6 + Bluetooth® Low Energy 5.4 / 802.15.4",
+            "image": "images/rdrw612bga.jpg",
+            "url": "https://www.nxp.com/products/wireless-connectivity/wi-fi-plus-bluetooth-plus-802-15-4/wireless-mcu-with-integrated-tri-radio-1x1-wi-fi-6-plus-bluetooth-low-energy-5-4-802-15-4:RW612",
+            "probeTarget": {
+                "LinkServer": "RW612:RD-RW612-BGA",
+                "SEGGER": "RW612"
+            }
+        }
+    ],
+    "apps": [
+        "air-quality-sensor-app",
+        "all-clusters-app",
+        "cooktop-app",
+        "cooksurface-app",
+        "laundry-washer-app",
+        "light-switch-app",
+        "lock-app",
+        "onoff-plugin-unit-app",
+        "pump-app",
+        "room-air-conditioner-app",
+        "smoke-co-alarm-app",
+        "temperature-measurement-app",
+        "thermostat",
+        "window-app"
+    ],
+    "targets": {},
+    "debugConfig": {
+        "loadAddress": "0x8020000",
+        "probes": {
+            "LinkServer": {
+                "interface": "swd",
+                "initCommands": []
+            },
+            "SEGGER": {
+                "interface": "swd",
+                "speed": "4000",
+                "initCommands": []
+            }
+        },
+        "preFlashActions": [
+            {
+                "description": "Run pre flash actions",
+                "command": "scripts/flash_utils.py --platform rw61x"
+            }
+        ]
+    }
+}
