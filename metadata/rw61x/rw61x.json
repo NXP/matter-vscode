@@ -26,9 +26,20 @@
         }
     ],
     "apps": [
+        "air-quality-sensor-app",
         "all-clusters-app",
+        "cooktop-app",
+        "cooksurface-app",
         "laundry-washer-app",
-        "thermostat"
+        "light-switch-app",
+        "lock-app",
+        "onoff-plugin-unit-app",
+        "pump-app",
+        "room-air-conditioner-app",
+        "smoke-co-alarm-app",
+        "temperature-measurement-app",
+        "thermostat",
+        "window-app"
     ],
     "targets": {
         "nxp-rw61x-freertos-all-clusters-wifi": "All clusters app over Wi-Fi",
