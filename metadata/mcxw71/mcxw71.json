@@ -3,6 +3,7 @@
     "description": "Metadata for mcxw71 support in Matter",
     "sdkVersion": "2.16.0",
     "sdkWestManifest": "third_party/nxp/nxp_matter_support/github_sdk/common_sdk/manifest/west.yml",
+    "sdkEnvironmentVariable": "NXP_SDK_ROOT",
     "boards": [
         {
             "name": "FRDM-MCXW71",
@@ -16,25 +17,33 @@
         }
     ],
     "apps": [
-        "lighting-app",
-        "contact-sensor-app"
+        {
+            "name": "lighting-app",
+            "deviceType": "On/Off Light",
+            "targets": {
+                "nxp-mcxw71-freertos-lighting": "Lighting app",
+                "nxp-mcxw71-freertos-lighting-factory": "Lighting app with factory data",
+                "nxp-mcxw71-freertos-lighting-rotating-id": "Lighting app with rotating device id",
+                "nxp-mcxw71-freertos-lighting-smu2": "Lighting app with SMU2",
+                "nxp-mcxw71-freertos-lighting-smu2-factory": "Lighting app with SMU2 and factory data",
+                "nxp-mcxw71-freertos-lighting-sw-v2": "Lighting app (OTA)",
+                "nxp-mcxw71-freertos-lighting-smu2-sw-v2": "Lighting app with SMU2 (OTA)",
+                "nxp-mcxw71-freertos-lighting-factory-sw-v2": "Lighting app with factory data (OTA)",
+                "nxp-mcxw71-freertos-lighting-smu2-factory-sw-v2": "Lighting app with SMU2 and factory data (OTA)"
+            }
+        },
+        {
+            "name": "contact-sensor-app",
+            "deviceType": "Contact Sensor",
+            "targets": {
+                "nxp-mcxw71-freertos-contact-sensor-low-power": "Low power contact sensor app",
+                "nxp-mcxw71-freertos-contact-sensor-low-power-factory": "Low power contact sensor app with factory data",
+                "nxp-mcxw71-freertos-contact-sensor-low-power-lit": "Low power contact sensor app (LIT)",
+                "nxp-mcxw71-freertos-contact-sensor-low-power-sw-v2": "Low power contact sensor app (OTA)",
+                "nxp-mcxw71-freertos-contact-sensor-low-power-factory-sw-v2": "Low power contact sensor app with factory data (OTA)"
+            }
+        }
     ],
-    "targets": {
-        "nxp-mcxw71-freertos-lighting": "Lighting app",
-        "nxp-mcxw71-freertos-lighting-factory": "Lighting app with factory data",
-        "nxp-mcxw71-freertos-lighting-rotating-id": "Lighting app with rotating device id",
-        "nxp-mcxw71-freertos-lighting-smu2": "Lighting app with SMU2",
-        "nxp-mcxw71-freertos-lighting-smu2-factory": "Lighting app with SMU2 and factory data",
-        "nxp-mcxw71-freertos-lighting-sw-v2": "Lighting app (OTA)",
-        "nxp-mcxw71-freertos-lighting-smu2-sw-v2": "Lighting app with SMU2 (OTA)",
-        "nxp-mcxw71-freertos-lighting-factory-sw-v2": "Lighting app with factory data (OTA)",
-        "nxp-mcxw71-freertos-lighting-smu2-factory-sw-v2": "Lighting app with SMU2 and factory data (OTA)",
-        "nxp-mcxw71-freertos-contact-sensor-low-power": "Low power contact sensor app",
-        "nxp-mcxw71-freertos-contact-sensor-low-power-factory": "Low power contact sensor app with factory data",
-        "nxp-mcxw71-freertos-contact-sensor-low-power-lit": "Low power contact sensor app (LIT)",
-        "nxp-mcxw71-freertos-contact-sensor-low-power-sw-v2": "Low power contact sensor app (OTA)",
-        "nxp-mcxw71-freertos-contact-sensor-low-power-factory-sw-v2": "Low power contact sensor app with factory data (OTA)"
-    },
     "debugConfig": {
         "loadAddress": "0",
         "probes": {
