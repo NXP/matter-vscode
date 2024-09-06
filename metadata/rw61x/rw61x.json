@@ -3,6 +3,7 @@
     "description": "Metadata for rw61x support in Matter",
     "sdkVersion": "2.16.0",
     "sdkWestManifest": "third_party/nxp/nxp_matter_support/github_sdk/common_sdk/manifest/west.yml",
+    "sdkEnvironmentVariable": "NXP_SDK_ROOT",
     "boards": [
         {
             "name": "RD-RW612-BGA",
@@ -26,32 +27,89 @@
         }
     ],
     "apps": [
-        "air-quality-sensor-app",
-        "all-clusters-app",
-        "cooktop-app",
-        "cooksurface-app",
-        "laundry-washer-app",
-        "light-switch-app",
-        "lock-app",
-        "onoff-plugin-unit-app",
-        "pump-app",
-        "room-air-conditioner-app",
-        "smoke-co-alarm-app",
-        "temperature-measurement-app",
-        "thermostat",
-        "window-app"
+        {
+            "name": "air-quality-sensor-app",
+            "deviceType": "Air Quality Sensor",
+            "targets": {}
+        },
+        {
+            "name": "all-clusters-app",
+            "deviceType": "All Clusters",
+            "targets": {
+                "nxp-rw61x-freertos-all-clusters-wifi": "All clusters app over Wi-Fi",
+                "nxp-rw61x-freertos-all-clusters-thread": "All clusters app over OpenThread",
+                "nxp-rw61x-freertos-all-clusters-thread-wifi": "All clusters app over Wi-Fi with OpenThread Border Router support"
+            }
+        },
+        {
+            "name": "cooktop-app",
+            "deviceType": "Cooktop",
+            "targets": {}
+        },
+        {
+            "name": "cooksurface-app",
+            "deviceType": "Cook Surface",
+            "targets": {}
+        },
+        {
+            "name": "laundry-washer-app",
+            "deviceType": "Laundry Washer",
+            "targets": {
+                "nxp-rw61x-freertos-laundry-washer-wifi": "Laundry washer over Wi-Fi",
+                "nxp-rw61x-freertos-laundry-washer-thread": "Laundry washerover OpenThread",
+                "nxp-rw61x-freertos-laundry-washer-thread-wifi": "Laundry washer over Wi-Fi with OpenThread Border Router support"
+            }
+        },
+        {
+            "name": "light-switch-app",
+            "deviceType": "On/Off Light Switch",
+            "targets": {}
+        },
+        {
+            "name": "lock-app",
+            "deviceType": "Door Lock",
+            "targets": {}
+        },
+        {
+            "name": "onoff-plugin-unit-app",
+            "deviceType": "On/Off Plug-in Unit",
+            "targets": {}
+        },
+        {
+            "name": "pump-app",
+            "deviceType": "Pump",
+            "targets": {}
+        },
+        {
+            "name": "room-air-conditioner-app",
+            "deviceType": "Room Air Conditioner",
+            "targets": {}
+        },
+        {
+            "name": "smoke-co-alarm-app",
+            "deviceType": "Smoke CO Alarm",
+            "targets": {}
+        },
+        {
+            "name": "temperature-measurement-app",
+            "deviceType": "Temperature Sensor",
+            "targets": {}
+        },
+        {
+            "name": "thermostat",
+            "deviceType": "Thermostat",
+            "targets": {
+                "nxp-rw61x-freertos-thermostat-wifi": "Thermostat over WiFi",
+                "nxp-rw61x-freertos-thermostat-thread": "Thermostat over OpenThread",
+                "nxp-rw61x-freertos-thermostat-thread-wifi": "Thermostat over Wi-Fi with OpenThread Border Router support"
+            }
+        },
+        {
+            "name": "window-app",
+            "deviceType": "Window Covering",
+            "targets": {}
+        }
     ],
-    "targets": {
-        "nxp-rw61x-freertos-all-clusters-wifi": "All clusters app over Wi-Fi",
-        "nxp-rw61x-freertos-all-clusters-thread": "All clusters app over OpenThread",
-        "nxp-rw61x-freertos-all-clusters-thread-wifi": "All clusters app over Wi-Fi with OpenThread Border Router support",
-        "nxp-rw61x-freertos-laundry-washer-wifi": "Laundry washer over Wi-Fi",
-        "nxp-rw61x-freertos-laundry-washer-thread": "Laundry washerover OpenThread",
-        "nxp-rw61x-freertos-laundry-washer-thread-wifi": "Laundry washer over Wi-Fi with OpenThread Border Router support",
-        "nxp-rw61x-freertos-thermostat-wifi": "Thermostat over WiFi",
-        "nxp-rw61x-freertos-thermostat-thread": "Thermostat over OpenThread",
-        "nxp-rw61x-freertos-thermostat-thread-wifi": "Thermostat over Wi-Fi with OpenThread Border Router support"
-    },
     "debugConfig": {
         "loadAddress": "0x8020000",
         "probes": {
