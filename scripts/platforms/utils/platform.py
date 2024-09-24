@@ -15,9 +15,13 @@
 #    limitations under the License.
 #
 
+import os
 import subprocess
 import sys
 
+MATTER_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../../"))
+K32W0_SDK = os.path.abspath(os.path.join(MATTER_ROOT, "third_party/nxp/nxp_matter_support/github_sdk/k32w0/repo"))
+COMMON_SDK = os.path.abspath(os.path.join(MATTER_ROOT, "third_party/nxp/nxp_matter_support/github_sdk/common_sdk/repo"))
 
 class Platform:
     """Defines a common API for pre flash actions for different platforms."""
@@ -25,6 +29,7 @@ class Platform:
     def __init__(self):
         """The list of actions should be populated here in derived classes."""
         self.tool = None
+        self.name = type(self).__name__.lower()
 
     def pre_message(self):
         """This message is printed when there is something wrong with the connection.
@@ -48,3 +53,12 @@ class Platform:
             # Inform caller that the board must be set up correctly.
             self.pre_message()
             sys.exit(1)
+
+    def get_binary(self, binary):
+        """API to retrieve binaries path from the corresponding platform folder."""
+        path = os.path.abspath(os.path.join(MATTER_ROOT, f"matter-vscode-for-mcux/metadata/{self.name}/binaries/{binary}"))
+        if not os.path.exists(path):
+            print(f"No such file: {path}")
+            sys.exit(1)
+
+        return path
