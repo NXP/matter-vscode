@@ -16,12 +16,12 @@
 #
 import os
 
+from .utils.platform import COMMON_SDK
 from .utils.platform import Platform
 from .utils.tools import BlHost
 
 # This assumes that the matter-vscode-for-mcux repo is cloned in Matter root path.
-github_sdk = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../third_party/nxp/nxp_matter_support/github_sdk/common_sdk/repo'))
-nbu_path = f"{github_sdk}/middleware/wireless/ieee-802.15.4/bin/k32w1/k32w1_nbu_ble_15_4_dyn_matter_1_0_17_1.sb3"
+nbu_path = os.path.abspath(os.path.join(COMMON_SDK, "middleware/wireless/ieee-802.15.4/bin/k32w1/k32w1_nbu_ble_15_4_dyn_matter_1_0_17_1.sb3"))
 
 class K32W1(Platform):
 
@@ -31,10 +31,10 @@ class K32W1(Platform):
         self.tool = BlHost()
         self.tool.add_action(["receive-sb-file", nbu_path])
         self.tool.add_action(["flash-erase-region", "0xf4000", "8192"])
-        self.tool.add_action(["write-memory", "0xf4000", "metadata/k32w1/binaries/example-factory-data.bin", "8192"])
+        self.tool.add_action(["write-memory", "0xf4000", self.get_binary("example-factory-data.bin"), "8192"])
         self.tool.add_action(["reset"])
 
     def pre_message(self):
         print("Please place the board in ISP mode:")
-        print(" - place jumper on JP25")
+        print(" - place jumper on JP25 pins 2-3")
         print(" - press and hold SW4, press and release Reset, then release SW4")
