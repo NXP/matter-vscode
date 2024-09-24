@@ -20,7 +20,6 @@ import os
 from .utils.platform import Platform
 from .utils.tools import BlHost
 
-
 class RW61X(Platform):
 
     def __init__(self):
@@ -28,7 +27,7 @@ class RW61X(Platform):
 
         self.tool = BlHost()
         self.tool.add_action(["flash-erase-region", "0xBFFF000", "8192"])
-        self.tool.add_action(["write-memory", "0xBFFF000", "metadata/rw61x/binaries/example-factory-data.bin", "8192"])
+        self.tool.add_action(["write-memory", "0xBFFF000", self.get_binary("example-factory-data.bin"), "8192"])
         self.tool.add_action(["flash-erase-region", "0x8000000", "0x8a0000"])
-        self.tool.add_action(["write-memory", "0x8000400", "metadata/rw61x/binaries/example-mcuboot.bin"])
+        self.tool.add_action(["write-memory", "0x8000400", self.get_binary("example-mcuboot.bin")])
         self.tool.add_action(["reset"])
