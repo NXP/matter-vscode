@@ -20,7 +20,6 @@ import os
 from .utils.platform import Platform
 from .utils.tools import BlHost
 
-
 class RT1170(Platform):
 
     def __init__(self):
@@ -28,6 +27,6 @@ class RT1170(Platform):
 
         self.tool = BlHost()
         self.tool.add_action(["flash-erase-region", "0x30000000", "0x1000000"])
-        self.tool.add_action(["write-memory", "0x30FDF000", "metadata/rt1170/binaries/example-factory-data.bin", "8192"])
-        self.tool.add_action(["write-memory", "0x30000000", "metadata/rt1170/binaries/example-mcuboot.bin"])
+        self.tool.add_action(["write-memory", "0x30FDF000", self.get_binary("example-factory-data.bin"), "8192"])
+        self.tool.add_action(["write-memory", "0x30000000", self.get_binary("example-mcuboot.bin")])
         self.tool.add_action(["reset"])
