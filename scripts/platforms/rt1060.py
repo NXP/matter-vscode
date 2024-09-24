@@ -27,5 +27,5 @@ class RT1060(Platform):
 
         self.tool = BlHost()
         self.tool.add_action(["flash-erase-region", "0x607df000", "8192"])
-        self.tool.add_action(["write-memory", "0x607df000", "metadata/rt1060/binaries/example-factory-data.bin", "8192"])
+        self.tool.add_action(["write-memory", "0x607df000", self.get_binary("example-factory-data.bin"), "8192"])
         self.tool.add_action(["reset"])
