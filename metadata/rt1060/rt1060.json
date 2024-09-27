@@ -8,7 +8,7 @@
         {
             "name": "EVK-MIMXRT1060",
             "description": "i.MX RT1060: Crossover MCU with Arm® Cortex®-M7",
-            "image": "images/mimxrt1060-evkb.png",
+            "image": "images/evk-mimxrt1060.gif",
             "url": "https://www.nxp.com/products/processors-and-microcontrollers/arm-microcontrollers/i-mx-rt-crossover-mcus/i-mx-rt1060-crossover-mcu-with-arm-cortex-m7:i.MX-RT1060",
             "probeTarget": {
                 "LinkServer": "MIMXRT1062xxxxA:EVK-MIMXRT1060",
@@ -28,7 +28,7 @@
         {
             "name": "MIMXRT1060-EVKC",
             "description": "i.MX RT1060: Crossover MCU with Arm® Cortex®-M7",
-            "image": "images/mimxrt1060-evkb.png",
+            "image": "images/mimxrt1060-evkc.png",
             "url": "https://www.nxp.com/products/processors-and-microcontrollers/arm-microcontrollers/i-mx-rt-crossover-mcus/i-mx-rt1060-crossover-mcu-with-arm-cortex-m7:i.MX-RT1060",
             "probeTarget": {
                 "LinkServer": "MIMXRT1062xxxxB:MIMXRT1060-EVKC",
