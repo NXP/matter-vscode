@@ -15,8 +15,6 @@
 #    limitations under the License.
 #
 
-import os
-
 from .utils.platform import Platform
 from .utils.tools import BlHost
 
