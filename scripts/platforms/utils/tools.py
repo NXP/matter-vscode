@@ -15,7 +15,6 @@
 #    limitations under the License.
 #
 
-import pylink
 import subprocess
 
 from spsdk.dk6.dk6device import DK6Device
@@ -40,7 +39,7 @@ class Tool:
 
     def run_actions(self):
         for action in self.actions:
-            subprocess.run(self.cmd + action)
+            subprocess.run(self.cmd + action, check=True)
 
     def add_action(self, action):
         self.actions.append(action)
@@ -59,7 +58,7 @@ class DK6Prog(Tool):
         devices = interface.list_devices()
         if devices:
             self.identifier = devices[0].device_id
-        self.cmd = ["dk6prog", "-d", self.identifier]
+        self.cmd = ["dk6prog", "-d", str(self.identifier)]
 
 
 class BlHost(Tool):

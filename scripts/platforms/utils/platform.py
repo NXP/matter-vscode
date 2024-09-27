@@ -16,7 +16,6 @@
 #
 
 import os
-import subprocess
 import sys
 
 MATTER_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../../"))
