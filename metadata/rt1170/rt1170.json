@@ -8,7 +8,7 @@
         {
             "name": "MIMXRT1170-EVK",
             "description": "i.MX RT1170: 1 GHz Crossover MCU with Arm® Cortex® Cores",
-            "image": "images/mimxrt1170-evk.jpg",
+            "image": "images/mimxrt1170-evk.png",
             "url": "https://www.nxp.com/products/processors-and-microcontrollers/arm-microcontrollers/i-mx-rt-crossover-mcus/i-mx-rt1170-1-ghz-crossover-mcu-with-arm-cortex-cores:i.MX-RT1170",
             "probeTarget": {
                 "LinkServer": "MIMXRT1176xxxxx:MIMXRT1170-EVK",
@@ -18,7 +18,7 @@
         {
             "name": "MIMXRT1170-EVKB",
             "description": "i.MX RT1170: 1 GHz Crossover MCU with Arm® Cortex® Cores",
-            "image": "images/mimxrt1170-evk.jpg",
+            "image": "images/mimxrt1170-evkb.png",
             "url": "https://www.nxp.com/products/processors-and-microcontrollers/arm-microcontrollers/i-mx-rt-crossover-mcus/i-mx-rt1170-1-ghz-crossover-mcu-with-arm-cortex-cores:i.MX-RT1170",
             "probeTarget": {
                 "LinkServer": "MIMXRT1176xxxxx:MIMXRT1170-EVKB",
