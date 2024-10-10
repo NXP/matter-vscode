@@ -1,9 +1,7 @@
-evkbmimxrt1060
-evkbmimxrt1170
-evkcmimxrt1060
-evkmimxrt1060
-evkmimxrt1170
-frdmmcxw71
-frdmrw612
-k32w148evk
-rdrw612bga
+evkbmimxrt1060/ota_examples
+evkbmimxrt1170/ota_examples
+evkcmimxrt1060/ota_examples
+evkmimxrt1060/ota_examples
+evkmimxrt1170/ota_examples
+frdmrw612/ota_examples
+rdrw612bga/ota_examples
