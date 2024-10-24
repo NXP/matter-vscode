@@ -24,8 +24,15 @@ class RW61X(Platform):
         super().__init__()
 
         self.tool = BlHost()
+        self.tool.add_action(["fill-memory", "0x2000F000", "0x4", "0xC0100008"])
+        self.tool.add_action(["configure-memory", "9", "0x2000F000"])
         self.tool.add_action(["flash-erase-region", "0xBFFF000", "8192"])
         self.tool.add_action(["write-memory", "0xBFFF000", self.get_binary("example-factory-data.bin"), "8192"])
-        self.tool.add_action(["flash-erase-region", "0x8000000", "0x8a0000"])
+        self.tool.add_action(["flash-erase-region", "0x8000000", "0x8a00000"])
         self.tool.add_action(["write-memory", "0x8000400", self.get_binary("example-mcuboot.bin")])
         self.tool.add_action(["reset"])
+
+    def pre_message(self):
+        print("Please place the board in ISP mode:")
+        print(" - Set boot config mode to '1110' on U38 switches")
+        print(" - Power cycle or reset the board")
