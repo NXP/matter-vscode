@@ -21,7 +21,7 @@
             "image": "images/frdm-rw612.png",
             "url": "https://www.nxp.com/products/wireless-connectivity/wi-fi-plus-bluetooth-plus-802-15-4/wireless-mcu-with-integrated-tri-radio-1x1-wi-fi-6-plus-bluetooth-low-energy-5-4-802-15-4:RW612",
             "probeTarget": {
-                "LinkServer": "RW612:RD-RW612-BGA",
+                "LinkServer": "RW612:FRDM-RW612",
                 "SEGGER": "RW612"
             }
         }
