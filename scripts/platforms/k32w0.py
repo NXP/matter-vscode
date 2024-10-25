@@ -21,17 +21,15 @@ from .utils.platform import K32W0_SDK
 from .utils.platform import Platform
 from .utils.tools import DK6Prog
 
-# This assumes that the matter-vscode-for-mcux repo is cloned in Matter root path.
-ssbl_path = os.path.abspath(os.path.join(K32W0_SDK, "examples/k32w061dk6/wireless_examples/framework/ssbl/binary/ssbl_ext_flash_pdm_support.bin"))
 
 class K32W0(Platform):
 
-    def __init__(self):
+    def __init__(self, board=None):
         super().__init__()
 
         self.tool = DK6Prog()
         self.tool.add_action(["erase", "0", "0x9de00"])
-        self.tool.add_action(["write", "0", ssbl_path])
+        self.tool.add_action(["write", "0", self.get_binary("example-ssbl.bin")])
         self.tool.add_action(["write", "0x9d600", self.get_binary("example-factory-data.bin")])
         self.tool.add_action(["write", "0x160", "{{0000000010000000}}", "8", "PSECT"])
         self.tool.add_action(["write", "0x168", "{{00400000C9040101}}", "8", "PSECT"])
