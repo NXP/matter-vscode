@@ -53,6 +53,10 @@ class Platform:
             self.pre_message()
             sys.exit(1)
 
+    def dry_run_actions(self):
+        """This is a dry run version of run_actions. Commands will only be logged."""
+        self.tool.dry_run_actions()
+
     def get_binary(self, binary):
         """API to retrieve binaries path from the corresponding platform folder."""
         path = os.path.abspath(os.path.join(MATTER_ROOT, f"matter-vscode-for-mcux/metadata/{self.name}/binaries/{binary}"))

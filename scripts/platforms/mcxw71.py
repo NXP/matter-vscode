@@ -25,7 +25,7 @@ nbu_path = os.path.abspath(os.path.join(COMMON_SDK, "middleware/wireless/ieee-80
 
 class MCXW71(Platform):
 
-    def __init__(self):
+    def __init__(self, board=None):
         super().__init__()
 
         self.tool = BlHost()

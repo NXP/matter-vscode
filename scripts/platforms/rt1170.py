@@ -20,7 +20,7 @@ from .utils.tools import BlHost
 
 class RT1170(Platform):
 
-    def __init__(self):
+    def __init__(self, board=None):
         super().__init__()
 
         self.tool = BlHost()

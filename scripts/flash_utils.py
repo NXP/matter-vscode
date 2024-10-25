@@ -35,13 +35,19 @@ PLATFORMS = {
 
 @click.command()
 @click.option("--platform", default=None, help="Platform name")
-def main(platform):
+@click.option("--board", default=None, help="Board name")
+@click.option("--dry-run", is_flag=True, default=False, help="Dry run (list commands without running them)")
+def main(platform, board, dry_run):
     """Utility script to run pre flash actions for different platforms.
     Examples: loading factory data, writing the radio firmware etc.
     """
 
     try:
-        PLATFORMS[platform]().run_actions()
+        plat = PLATFORMS[platform](board)
+        if dry_run:
+            plat.dry_run_actions()
+        else:
+            plat.run_actions()
     except KeyError as _:
         print(f"{platform} is not supported")
         print(f"Here is a list of supported platforms: {list(PLATFORMS.keys())}")

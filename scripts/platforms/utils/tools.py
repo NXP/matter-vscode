@@ -39,7 +39,14 @@ class Tool:
 
     def run_actions(self):
         for action in self.actions:
+            print("Running command: ", " ".join(self.cmd + action))
             subprocess.run(self.cmd + action, check=True)
+
+    def dry_run_actions(self):
+        print("Dry run commands:")
+        for action in self.actions:
+            print(" ".join(self.cmd + action))
+        print("Note: please replace the interface (None) with a valid one if testing manually.")
 
     def add_action(self, action):
         self.actions.append(action)
@@ -70,4 +77,4 @@ class BlHost(Tool):
         nxp_uart_devices = nxpdevscan.search_nxp_uart_devices()
         if nxp_uart_devices:
             self.identifier = nxp_uart_devices[0].name
-        self.cmd = ["blhost", "-p", self.identifier]
+        self.cmd = ["blhost", "-p", str(self.identifier)]

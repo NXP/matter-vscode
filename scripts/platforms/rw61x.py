@@ -15,21 +15,33 @@
 #    limitations under the License.
 #
 
+import sys
+
 from .utils.platform import Platform
 from .utils.tools import BlHost
 
 class RW61X(Platform):
 
-    def __init__(self):
+    def __init__(self, board="RD-RW612-BGA"):
         super().__init__()
 
+        if board == "RD-RW612-BGA":
+            pattern = "0xC0100008"
+            mcu_boot_path = self.get_binary("example-mcuboot-bga.bin")
+        elif board == "FRDM-RW612":
+            pattern = "0xC0000008"
+            mcu_boot_path = self.get_binary("example-mcuboot-frdm.bin")
+        else:
+            print(f"Board {board} is not valid. Please select from: RD-RW612-BGA or FRDM-RW612")
+            sys.exit(1)
+
         self.tool = BlHost()
-        self.tool.add_action(["fill-memory", "0x2000F000", "0x4", "0xC0100008"])
+        self.tool.add_action(["fill-memory", "0x2000F000", "0x4", pattern])
         self.tool.add_action(["configure-memory", "9", "0x2000F000"])
         self.tool.add_action(["flash-erase-region", "0xBFFF000", "8192"])
         self.tool.add_action(["write-memory", "0xBFFF000", self.get_binary("example-factory-data.bin"), "8192"])
         self.tool.add_action(["flash-erase-region", "0x8000000", "0x8a00000"])
-        self.tool.add_action(["write-memory", "0x8000400", self.get_binary("example-mcuboot.bin")])
+        self.tool.add_action(["write-memory", "0x8000400", mcu_boot_path])
         self.tool.add_action(["reset"])
 
     def pre_message(self):
