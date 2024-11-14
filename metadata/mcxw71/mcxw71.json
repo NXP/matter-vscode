@@ -13,7 +13,8 @@
             "probeTarget": {
                 "LinkServer": "MCXW716CxxxA:FRDM-MCXW71",
                 "SEGGER": "MCXW71"
-            }
+            },
+            "userVisible": true
         }
     ],
     "apps": [

@@ -13,7 +13,8 @@
             "probeTarget": {
                 "LinkServer": "MIMXRT1176xxxxx:MIMXRT1170-EVK",
                 "SEGGER": "MIMXRT1176xxxA_M7"
-            }
+            },
+            "userVisible": false
         },
         {
             "name": "MIMXRT1170-EVKB",
@@ -23,7 +24,8 @@
             "probeTarget": {
                 "LinkServer": "MIMXRT1176xxxxx:MIMXRT1170-EVKB",
                 "SEGGER": "MIMXRT1176xxxA_M7"
-            }
+            },
+            "userVisible": false
         }
     ],
     "apps": [

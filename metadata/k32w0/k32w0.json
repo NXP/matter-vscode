@@ -13,7 +13,8 @@
             "probeTarget": {
                 "LinkServer": "K32W041A:K32W041ADK6",
                 "SEGGER": "K32W041A"
-            }
+            },
+            "userVisible": false
         },
         {
             "name": "K32W041AMDK6",
@@ -23,7 +24,8 @@
             "probeTarget": {
                 "LinkServer": "K32W041AM:K32W041AMDK6",
                 "SEGGER": "K32W041AM"
-            }
+            },
+            "userVisible": false
         },
         {
             "name": "K32W061DK6",
@@ -33,7 +35,8 @@
             "probeTarget": {
                 "LinkServer": "K32W061:K32W061DK6",
                 "SEGGER": "K32W061"
-            }
+            },
+            "userVisible": true
         }
     ],
     "apps": [

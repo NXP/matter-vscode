@@ -13,7 +13,8 @@
             "probeTarget": {
                 "LinkServer": "RW612:RD-RW612-BGA",
                 "SEGGER": "RW612"
-            }
+            },
+            "userVisible": true
         },
         {
             "name": "FRDM-RW612",
@@ -23,7 +24,8 @@
             "probeTarget": {
                 "LinkServer": "RW612:FRDM-RW612",
                 "SEGGER": "RW612"
-            }
+            },
+            "userVisible": false
         }
     ],
     "apps": [

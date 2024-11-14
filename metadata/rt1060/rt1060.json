@@ -13,7 +13,8 @@
             "probeTarget": {
                 "LinkServer": "MIMXRT1062xxxxA:EVK-MIMXRT1060",
                 "SEGGER": "MIMXRT1062xxx6A"
-            }
+            },
+            "userVisible": false
         },
         {
             "name": "MIMXRT1060-EVKB",
@@ -23,7 +24,8 @@
             "probeTarget": {
                 "LinkServer": "MIMXRT1062xxxxA:MIMXRT1060-EVKB",
                 "SEGGER": "MIMXRT1062xxx6A"
-            }
+            },
+            "userVisible": false
         },
         {
             "name": "MIMXRT1060-EVKC",
@@ -33,7 +35,8 @@
             "probeTarget": {
                 "LinkServer": "MIMXRT1062xxxxB:MIMXRT1060-EVKC",
                 "SEGGER": "MIMXRT1062xxx6B"
-            }
+            },
+            "userVisible": false
         }
     ],
     "apps": [
