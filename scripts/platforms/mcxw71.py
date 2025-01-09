@@ -21,7 +21,7 @@ from .utils.platform import Platform
 from .utils.tools import BlHost
 
 # This assumes that the matter-vscode-for-mcux repo is cloned in Matter root path.
-nbu_path = os.path.abspath(os.path.join(COMMON_SDK, "middleware/wireless/ieee-802.15.4/bin/mcxw71/mcxw71_nbu_ble_15_4_dyn_matter_1_0_17_1.sb3"))
+nbu_path = os.path.abspath(os.path.join(COMMON_SDK, "middleware/wireless/ieee-802.15.4/bin/mcxw71/mcxw71_nbu_ble_15_4_dyn_matter_1_0_17_2.sb3"))
 
 class MCXW71(Platform):
 
@@ -36,5 +36,4 @@ class MCXW71(Platform):
 
     def pre_message(self):
         print("Please place the board in ISP mode:")
-        print(" - place jumper on JP25")
-        print(" - press and hold SW4, press and release Reset, then release SW4")
+        print(" - press and hold ISP, press and release Reset, then release ISP")
